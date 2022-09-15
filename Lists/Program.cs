@@ -9,7 +9,12 @@ namespace Lists
             // Testing the class
             var myList = new ListArray();
             myList.Add(new Item { ProductName = "carrots", Quantity = 1 });
+            myList.Add(new Item { ProductName = "biscuits", Quantity = 2 });
+            myList.Add(new Item { ProductName = "apples", Quantity = 1 });
             myList.Add(new Item { ProductName = "milk", Quantity = 1 });
+            myList.Add(new Item { ProductName = "biscuits", Quantity = 2 });
+            myList.Add(new Item { ProductName = "carrots", Quantity = 1 });
+            myList.Add(new Item { ProductName = "carrots", Quantity = 1 });
             myList.Add(new Item { ProductName = "apples", Quantity = 1 });
             myList.Add(new Item { ProductName = "biscuits", Quantity = 2 });
             myList.Add(new Item { ProductName = "carrots", Quantity = 1 });
@@ -24,7 +29,7 @@ namespace Lists
 
             // Remove carrots
 
-            myList.Remove(new Item { ProductName = "carrots" });
+            myList.RemoveOrdered(new Item { ProductName = "carrots" });
 
             // List the items in the list again
             Console.WriteLine("\n");
