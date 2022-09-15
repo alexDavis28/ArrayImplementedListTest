@@ -8,6 +8,9 @@ namespace Lists
         private int numItems;
         private int capacity;
 
+        public bool Full() => numItems >= arrayOfItems.Length;
+        public bool Empty() => numItems == 0;
+
         public int Count
         {
             get { return numItems; }
@@ -31,16 +34,6 @@ namespace Lists
                 arrayOfItems[numItems] = item;
                 numItems++;
             }
-        }
-
-        public bool Full()
-        {
-            return numItems >= arrayOfItems.Length;
-        }
-
-        public bool Empty()
-        {
-            return numItems == 0;
         }
 
         public bool Remove(Item item)
