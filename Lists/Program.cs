@@ -18,7 +18,6 @@ namespace Lists
             myList.Add(new Item { ProductName = "apples", Quantity = 1 });
             myList.Add(new Item { ProductName = "biscuits", Quantity = 2 });
             myList.Add(new Item { ProductName = "carrots", Quantity = 1 });
-
             // List the items in the list
 
             for (int i = 0; i < myList.Count; i++)
@@ -29,7 +28,7 @@ namespace Lists
 
             // Remove carrots
 
-            myList.RemoveOrdered(new Item { ProductName = "carrots" });
+            myList.Remove(new Item { ProductName = "carrots" });
 
             // List the items in the list again
             Console.WriteLine("\n");
@@ -38,6 +37,20 @@ namespace Lists
                 Console.WriteLine(i);
                 Console.WriteLine(myList.Retrieve(i).ProductName);
             }
+
+            // Test adding new spaces
+            Console.WriteLine("\nCurrent spaces: " + myList.Length()); // Expected: 100
+            Console.WriteLine("Adding 100 items");
+            for (int i = 0; i < 100; i++)
+            {
+                myList.Add(new Item { ProductName = "egg", Quantity = 1 });
+            }
+            Console.WriteLine("Current spaces: " + myList.Length()); // Expected: 200
+
+            // Test removing unused spaces
+            Console.WriteLine("Removing 100 items");
+            myList.Remove(new Item { ProductName = "egg" });
+            Console.WriteLine("Current spaces: " + myList.Length()); // Expected: 100
 
             // Ask the user for an item and output its position in the list
 

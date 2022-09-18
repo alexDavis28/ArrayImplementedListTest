@@ -10,6 +10,8 @@ namespace Lists
 
         public bool Full() => numItems >= arrayOfItems.Length;
         public bool Empty() => numItems == 0;
+        public int FreeSpaces() => arrayOfItems.Length - numItems;
+        public int Length() => arrayOfItems.Length;
 
         public int Count
         {
@@ -29,11 +31,12 @@ namespace Lists
 
         public void Add(Item item)
         {
-            if (!Full())
+            if (FreeSpaces() < 10)
             {
-                arrayOfItems[numItems] = item;
-                numItems++;
+                Array.Resize(ref arrayOfItems, arrayOfItems.Length + 100);
             }
+            arrayOfItems[numItems] = item;
+            numItems++;
         }
 
         public bool Remove(Item item)
@@ -52,6 +55,10 @@ namespace Lists
                     result = true;
                 }
                 location++;
+            }
+            if (FreeSpaces() >= 110)
+            {
+                Array.Resize(ref arrayOfItems, arrayOfItems.Length - 100);
             }
             return result;
         }
