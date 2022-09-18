@@ -56,31 +56,6 @@ namespace Lists
             return result;
         }
 
-        public bool RemoveOrdered(Item item)
-        {
-            // Removes all items that match item. 
-            // Returns true if there was any.
-            int location = 0;
-            bool result = false;
-            while (location < numItems)
-            {
-                if (arrayOfItems[location].ProductName == item.ProductName)
-                {
-                    int t_location = location;
-                    while (t_location < numItems)
-                    {
-                        arrayOfItems[t_location] = arrayOfItems[t_location + 1];
-                        t_location++;
-                    }
-                    numItems--;
-                    location--; // to ensure item moved up is checked
-                    result = true;
-                }
-                location++;
-            }
-            return result;
-        }
-
 
         public void RemoveAt(int index)
         {
